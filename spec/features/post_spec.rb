@@ -12,6 +12,18 @@ describe "navigate" do
             visit posts_path
             expect(page.status_code).to eq(200)  
         end
+
+        it "will have a title of Posts." do
+            visit posts_path
+            expect(page).to have_content(/Posts./)            
+        end
+
+        it "will have lists of posts" do
+            post1 = Post.create(date: Date.today, rationale: "post1")
+            post2 = Post.create(date: Date.today, rationale: "post2")
+            visit posts_path
+            expect(page).to have_content(/post1|post2/)  
+        end
         
     end
     
