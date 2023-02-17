@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe "navigate" do
+    before do
+        user = User.create(email:"test@test.com", password:"test123", password_confirmation:"test123", first_name:"Umair", last_name:"Ahmed")
+        login_as(user, scope: :user)
+    end
+
     describe "index" do
-        before do
-            user = User.create(email:"test@test.com", password:"test123", password_confirmation:"test123", first_name:"Umair", last_name:"Ahmed")
-        end
         
         it "will reach the index page of posts" do
             visit posts_path
@@ -15,8 +17,7 @@ describe "navigate" do
     
     describe "create and new" do
         before do
-            user = User.create(email:"test@test.com", password:"test123", password_confirmation:"test123", first_name:"Umair", last_name:"Ahmed")
-            login_as(user, scope: :user)
+            
             visit new_post_path
         end
     
