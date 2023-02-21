@@ -61,6 +61,8 @@ RSpec.configure do |config|
   end
   config.after(:all) do
     DatabaseCleaner.clean
+
+  config.include FactoryGirl::Syntax::Methods
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
