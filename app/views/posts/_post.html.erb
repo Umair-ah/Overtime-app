@@ -6,9 +6,9 @@
         <%= post.date %>
     </td>
     <td>
-        <%= truncate(post.rationale) %>
+        <%= post.user.full_name %>
     </td>
     <td>
-        <%= post.user.last_name %>
+        <%= truncate(post.rationale) %>
     </td>
 </tr>
