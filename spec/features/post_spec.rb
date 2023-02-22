@@ -11,7 +11,7 @@ describe "navigate" do
             @post = FactoryGirl.create(:post)
             visit posts_path
 
-            click_link("delete_#{@post.id}_from_index")
+            click_button("delete_#{@post.id}_from_index")
             expect(page.status_code).to eq(200)  
             
         end
