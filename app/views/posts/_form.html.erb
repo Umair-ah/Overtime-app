@@ -1,9 +1,25 @@
 <%= form_for @post do |f| %>
-    <%= f.label :Date %>
-    <%= f.date_field :date %>
 
-    <%= f.label :Rationale %>
-    <%= f.text_area :rationale %>
+    <div class="row">
+		<div class="col-md-12">
+            <%= f.label :Date %>
+            <%= f.date_field :date, class:"form-control" %>
+        </div>
+    </div>
 
-    <%= f.submit "Save" %>
+    <div class="row">
+		<div class="col-md-12">
+            <%= f.label :Rationale %>
+            <%= f.text_area :rationale, class:"form-control" %>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+		<div class="col-md-12">
+            <%= f.submit "Save", class:"btn btn-primary form-control" %>
+        </div>
+    </div>
 <% end %>
+
+
