@@ -6,6 +6,20 @@ describe "navigate" do
         login_as(@user, scope: :user)
     end
 
+    describe "delete" do
+        it "can delete a post" do
+            @post = FactoryGirl.create(:post)
+            visit posts_path
+
+            click_link("delete_#{@post.id}_from_index")
+            expect(page.status_code).to eq(200)  
+            
+        end
+        
+        
+    end
+    
+
     describe "index" do
         
         it "will reach the index page of posts" do
@@ -33,8 +47,6 @@ describe "navigate" do
             click_link("new_post_link")
             expect(page.status_code).to eq(200)  
         end
-        
-        
     end
     
     
@@ -84,10 +96,7 @@ describe "navigate" do
             fill_in "post[rationale]",	with: "edited rationale"
             click_on "Save"
             expect(page).to have_content("edited rationale")   
-        end
-        
-        
-        
+        end 
     end
     
     
