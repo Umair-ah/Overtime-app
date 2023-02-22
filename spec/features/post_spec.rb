@@ -27,7 +27,18 @@ describe "navigate" do
         
     end
     
-    describe "create and new" do
+    describe "new" do
+        it "can create a new post" do
+            visit root_path
+            click_link("new_post_link")
+            expect(page.status_code).to eq(200)  
+        end
+        
+        
+    end
+    
+    
+    describe "creation" do
         before do
             
             visit new_post_path
