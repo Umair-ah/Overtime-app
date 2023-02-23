@@ -10,16 +10,11 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
     posts: Field::HasMany,
-    remember_created_at: Field::DateTime,
-    reset_password_sent_at: Field::DateTime,
-    reset_password_token: Field::String,
     type: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,26 +24,22 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    email
-    encrypted_password
     first_name
+    last_name
+    email
+    posts
+    type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    email
-    encrypted_password
     first_name
     last_name
+    email
     posts
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     type
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -56,14 +47,9 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
-    encrypted_password
+    password
     first_name
     last_name
-    posts
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
-    type
   ].freeze
 
   # COLLECTION_FILTERS
