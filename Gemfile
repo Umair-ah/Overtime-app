@@ -16,6 +16,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 
 gem "administrate"
+gem 'administrate-field-enum'
 gem 'bourbon'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
