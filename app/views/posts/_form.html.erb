@@ -13,6 +13,19 @@
             <%= f.text_area :rationale, class:"form-control", required: true %>
         </div>
     </div>
+
+    <div class="row">
+		<div class="col-md-12">
+            <%= f.radio_button :status, "submitted" , required: true %>
+            <%= f.label :status, "Submitted" %>
+
+            <%= f.radio_button :status, "approved" , required: true %>
+            <%= f.label :status, "Approved" %>
+
+            <%= f.radio_button :status, "rejected" , required: true %>
+            <%= f.label :status, "Rejected" %>
+        </div>
+    </div>
     <br/>
 
     <div class="row">
