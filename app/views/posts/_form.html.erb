@@ -16,14 +16,7 @@
 
     <div class="row">
 		<div class="col-md-12">
-            <%= f.radio_button :status, "submitted" , required: true %>
-            <%= f.label :status, "Submitted" %>
-
-            <%= f.radio_button :status, "approved" , required: true %>
-            <%= f.label :status, "Approved" %>
-
-            <%= f.radio_button :status, "rejected" , required: true %>
-            <%= f.label :status, "Rejected" %>
+            <%= render partial: "status", locals: {f: f} if current_user.type == "AdminUser" %>
         </div>
     </div>
     <br/>
