@@ -9,6 +9,7 @@ describe "navigate" do
     describe "delete" do
         it "can delete a post" do
             @post = FactoryGirl.create(:post)
+            @post.update(user_id: @user.id)
             visit posts_path
 
             click_button("delete_#{@post.id}_from_index")
@@ -34,10 +35,26 @@ describe "navigate" do
 
         it "will have lists of posts" do
             post1 = FactoryGirl.create(:post)
+            post1.update(user_id: @user.id)
             post2 = FactoryGirl.create(:second_post)
+            post2.update(user_id: @user.id)
             visit posts_path
             expect(page).to have_content(/Something|Second/)  
         end
+
+        it "has a scope so that only post creators will be able to see posts" do
+            post1 = Post.create(date:Date.today, rationale:"smthg", user_id: @user.id)
+            post2 = Post.create(date:Date.today, rationale:"smthg2", user_id: @user.id)
+
+            other_user = User.create(first_name: "other", last_name:"user", email:"other@test.com", password:"other123", password_confirmation:"other123")
+            post_from_other_user = Post.create(date:Date.today, rationale:"this should be hidden", user_id: other_user.id)
+
+            visit posts_path
+
+            expect(page).to_not have_content(/this should be hidden/)  
+            
+        end
+        
         
     end
     
