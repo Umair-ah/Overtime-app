@@ -1,26 +1,30 @@
 <h1>Time Tracker.</h1>
-<ul class="nav nav-tabs" style="margin-top: 15px;">
-    <li class="nav-item nav-link <%= active?(root_path)%>">
-        <%= link_to "Home", root_path, style:"text-decoration: none;" %>
-    </li>
-    <li class="nav-item nav-link <%= active?(posts_path)%>">
-        <%= link_to "Time Entries", posts_path, style:"text-decoration: none;" %>
-    </li>
-    <li class="nav-item nav-link <%= active?(new_post_path)%>">
-        <%= link_to "Add New Entry", new_post_path, style:"text-decoration: none;", id:"new_post_link" %>
-    </li>
+<% if current_user %>
+    <ul class="nav nav-tabs" style="margin-top: 15px;">
+        <li class="nav-item nav-link <%= active?(root_path)%>">
+            <%= link_to "Home", root_path, style:"text-decoration: none;" %>
+        </li>
+        <li class="nav-item nav-link <%= active?(posts_path)%>">
+            <%= link_to "Time Entries", posts_path, style:"text-decoration: none;" %>
+        </li>
+        <li class="nav-item nav-link <%= active?(new_post_path)%>">
+            <%= link_to "Add New Entry", new_post_path, style:"text-decoration: none;", id:"new_post_link" %>
+        </li>
 
-   
-    <li class="nav-item dropdown ml-md-auto nav">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">Account</a>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to "GOTO: Admin Dashboard", root_path, class:"dropdown-item" %>
-            <div class="dropdown-divider">
-            </div> <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-        </div>
-    </li>
     
-</ul>
+        <li class="nav-item dropdown ml-md-auto nav">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">Options</a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+           <% if current_user.try(:type) == "AdminUser" %>
+                    <%= link_to "GOTO: Admin Dashboard", admin_root_path, class:"dropdown-item" %>
+                <div class="dropdown-divider"></div> 
+            <% end %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+            </div>
+        </li>
+        
+    </ul>
+<% end %>
 
 
 
