@@ -16,6 +16,10 @@
     </td>
 
     <td>
+        <%= status_labels(post.status)  %>
+    </td>
+
+    <td>
         <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}"%>
     </td>
 
