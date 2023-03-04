@@ -22,7 +22,6 @@ describe "navigate" do
     
 
     describe "index" do
-        
         it "will reach the index page of posts" do
             visit posts_path
             expect(page.status_code).to eq(200)  
