@@ -28,8 +28,8 @@ class ApplicationPolicy
     false
   end
 
-  def admin_types
-    %i["AdminUser"]
+  def admins_who_can_access 
+    ["AdminUser"]
   end
 
   def edit?
