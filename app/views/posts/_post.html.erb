@@ -20,7 +20,7 @@
     </td>
 
     <td>
-        <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}"%>
+        <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}" if policy(post).update? %>
     </td>
 
     <td>
