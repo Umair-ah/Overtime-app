@@ -16,7 +16,7 @@
     </td>
 
     <td>
-        <%= truncate(post.rationale) %>
+        <%= link_to truncate(post.rationale), post, style:"text-decoration: none;" %>
     </td>
 
     <td>
@@ -24,7 +24,7 @@
     </td>
 
     <td>
-        <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}" if policy(post).update? %>
+        <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}", style:"text-decoration: none;" if policy(post).update? %>
     </td>
 
     <td>
