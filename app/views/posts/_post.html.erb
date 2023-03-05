@@ -4,6 +4,10 @@
     </td>
 
     <td>
+        <%= post.overtime_request %>
+    </td>
+
+    <td>
         <%= post.date %>
     </td>
 
@@ -24,6 +28,6 @@
     </td>
 
     <td>
-        <%= button_to "Delete", post_path(post), method: :delete, id:"delete_#{post.id}_from_index"%>
+        <%= button_to "Delete", post_path(post), method: :delete, id:"delete_#{post.id}_from_index", class:"btn btn-sm btn-primary"%>
     </td>
 </tr>

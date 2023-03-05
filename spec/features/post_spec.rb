@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "navigate" do
     let(:user) { FactoryGirl.create(:user) }
     let(:post) do
-       Post.create(date: Date.today, rationale: "Rationale", user_id: user.id) 
+       Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, overtime_request: 1.5) 
     end
 
     before do
@@ -15,7 +15,7 @@ describe "navigate" do
             logout(:user)
             delete_user = FactoryGirl.create(:user)
             login_as(delete_user, scope: :user)
-            post_to_delete = Post.create(date: Date.today, rationale: "smthg0", user_id: delete_user.id)
+            post_to_delete = Post.create(date: Date.today, rationale: "smthg0", user_id: delete_user.id, overtime_request: 1.5)
             visit posts_path
 
             click_button("delete_#{post_to_delete.id}_from_index")
@@ -41,7 +41,7 @@ describe "navigate" do
 
         it "has a scope so that only post creators will be able to see posts" do
             other_user = User.create(first_name: "other", last_name:"user", email:"other@test.com", password:"other123", password_confirmation:"other123")
-            post_from_other_user = Post.create(date:Date.today, rationale:"this should be hidden", user_id: other_user.id)
+            post_from_other_user = Post.create(date:Date.today, rationale:"this should be hidden", user_id: other_user.id, overtime_request: 1.5)
 
             visit posts_path
 
@@ -74,16 +74,17 @@ describe "navigate" do
         it "can be created from new form page" do
             fill_in "post[date]",	with: Date.today
             fill_in "post[rationale]",	with: "something rationale" 
+            fill_in "post[overtime_request]",	with: 2.3 
     
-            click_on "Save"
-            expect(page).to have_content("something rationale")
+            expect { click_on "Save" }.to change(Post,:count ).by(1) 
             
         end
     
         it "will have a user associated with it" do
             fill_in "post[date]",	with: Date.today
             fill_in "post[rationale]",	with: "user association" 
-    
+            fill_in "post[overtime_request]",	with: 2.3 
+
             click_on "Save"
             expect(User.last.posts.last.rationale).to eq("user association")
             
