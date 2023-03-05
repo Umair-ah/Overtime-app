@@ -24,10 +24,10 @@
     </td>
 
     <td>
-        <%= link_to "Edit", edit_post_path(post), id:"edit_#{post.id}", style:"text-decoration: none;" if policy(post).update? %>
+        <%= link_to "", edit_post_path(post), id:"edit_#{post.id}", style:"text-decoration: none;", class:"bi bi-pencil index-icons" if policy(post).update? %>
     </td>
 
     <td>
-        <%= button_to "Delete", post_path(post), method: :delete, id:"delete_#{post.id}_from_index", class:"btn btn-sm btn-primary"%>
+        <%= button_to "", post_path(post), method: :delete, id:"delete_#{post.id}_from_index", class:"bi bi-trash index-icons" %>
     </td>
 </tr>
