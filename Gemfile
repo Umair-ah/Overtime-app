@@ -36,6 +36,9 @@ gem "jbuilder"
 
 gem 'jquery-rails'
 
+gem 'twilio-ruby', '~> 5.74.4'
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
