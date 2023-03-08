@@ -15,6 +15,7 @@ class UserDashboard < Administrate::BaseDashboard
     last_name: Field::String.with_options(searchable: true),
     posts: Field::HasMany.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
+    phone: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -36,6 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
     first_name
     last_name
     email
+    phone
     posts
     type
   ].freeze
@@ -45,6 +47,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
+    phone
     password
     first_name
     last_name

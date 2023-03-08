@@ -15,6 +15,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     last_name: Field::String.with_options(searchable: true),
     posts: Field::HasMany.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
+    phone: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -33,6 +34,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     email
+    phone
     first_name
     last_name
     posts
@@ -44,6 +46,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
+    phone
     password
     first_name
     last_name
