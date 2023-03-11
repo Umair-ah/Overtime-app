@@ -323,6 +323,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jsbundling-rails
+  kaminari
   pg (~> 1.1)
   puma (~> 5.0)
   pundit (~> 2.3)
