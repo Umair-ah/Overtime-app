@@ -14,7 +14,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <%= link_to "Approve", root_path, class:"btn btn-success form-control"%>
+                <%= link_to "Approve", approve_post_path(pending_approval), class:"btn btn-success form-control", id: "approve#{pending_approval.id}"%>
             </div>
 
             <div class="col-md-6">
