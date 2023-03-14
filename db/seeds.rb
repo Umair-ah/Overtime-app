@@ -15,7 +15,15 @@ AdminUser.create(email:"test@admin.com",
 puts "1 Admin created"
 
 100.times do |post|
-    Post.create(date: Date.today, rationale: "#{post}rationale content", overtime_request: 4.5, user_id: @user.id)
+    Post.create(date: Date.today, rationale: "#{post}rationale content Lorem Ipsum is simply 
+        dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+        industry's standard dummy text ever since the 1500s, when an unknown printer 
+        took a galley of type and scrambled it to make a type specimen book. It has
+        survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the
+        release of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions of 
+        Lorem Ipsum.", overtime_request: 4.5, user_id: @user.id)
 end
 
 puts "100 posts have been created"

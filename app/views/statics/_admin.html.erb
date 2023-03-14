@@ -12,36 +12,31 @@
     .homepage-block{
         background-color: #1D3C91;
         color: white;
-        margin: 15px;
+        margin: 12px 42px 12px 42px;
         padding: 15px;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
-
     }
+
+    .pending-details{
+        font-weight: 900;
+    }
+    .rev-btn-col{
+        color: white;
+    }
+    .rev-btn-col:hover{
+        color: white;
+        background: #e0a800;
+    }
+
 </style>
 
 <div class="container-fluid">
     <div class="pending-homepage row">
-        <div class="homepage-block col-md-3">
-            <p>asdf</p>
-        </div>
 
-        <div class="homepage-block col-md-3">
-            <p>asdf</p>
-        </div>
-
-        <div class="homepage-block col-md-3">
-            <p>asdf</p>
-        </div>
-
-        <div class="homepage-block col-md-3">
-            <p>asdf</p>
-        </div>
-
-        <div class="homepage-block col-md-3">
-            <p>asdf</p>
-        </div>
+        <%= render partial: "pending_approval", locals: {pending_approvals: @pending_approvals} %>
+        
     </div>
 
     <div class="pending-homepage row">
