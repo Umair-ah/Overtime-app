@@ -1,0 +1,22 @@
+<% recent_audit_logs.each do |recent_audit_log| %>
+
+    <div class="homepage-block col-md-3">
+        <h4>
+            <%= recent_audit_log.user.full_name %>
+        </h4>
+
+        <p>
+            <span class="pending-details">Date Submitted: </span> <%= recent_audit_log.start_date %>
+        </p>
+        <p>
+            <span class="pending-details">Confirmed At: </span> <%= recent_audit_log.end_date || status_labels('pending') %>
+        </p>
+        <p>
+            <span class="pending-details">Status: </span> <%= status_labels recent_audit_log.status %>
+        </p>
+
+        
+    </div>
+
+
+<% end %>

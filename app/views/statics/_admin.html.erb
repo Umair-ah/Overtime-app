@@ -29,19 +29,28 @@
         color: white;
         background: #e0a800;
     }
+    
+    .homepage-block:hover{
+        background: #0a256e;
+    }
 
 </style>
 
 <div class="container-fluid">
     <div class="pending-homepage row">
-        <h1>Items Pending Your Approvals...</h1>
+        <h1>Items Pending Your Approvals</h1>
         <hr>
 
         <%= render partial: "pending_approval", locals: {pending_approvals: @pending_approvals} %>
         
     </div>
+    <hr>
 
     <div class="pending-homepage row">
+        <h1>Confirmation Log</h1>
+        <hr>
+
+        <%= render partial: "confirmation_log", locals: {recent_audit_logs: @recent_audit_logs} %>
     
     
     </div>
