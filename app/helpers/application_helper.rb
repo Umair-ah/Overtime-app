@@ -1,4 +1,10 @@
 module ApplicationHelper
+    def admins_who_can_access
+        ["AdminUser"]
+    end
+
+
+
     def active?(path)
         "nav-link active" if current_page?(path)
     end
