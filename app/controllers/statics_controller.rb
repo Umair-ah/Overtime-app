@@ -1,6 +1,11 @@
 class StaticsController < ApplicationController
+
     def home
-        @pending_approvals = Post.where(status: "submitted")
-        @recent_audit_logs = AuditLog.last(10)
+        if admins_who_can_access.include?(current_user.type)
+            @pending_approvals = Post.submitted
+            @recent_audit_logs = AuditLog.last(10)
+        else
+            #something
+        end
     end
 end
