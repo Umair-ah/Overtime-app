@@ -11,12 +11,15 @@
     justify-content: center;
     align-items: center;
     }
+    .margin-employee-btn{
+        margin:15px;
+    }
 </style>
 
 <div class="container-fluid">
     <div class="row centre">
         <div class="col-md-5 jumbotron">
-            asd
+            <%= render partial: "pending_audit_confirmations", locals: {pending_audit_confirmations: @pending_audit_confirmations}%>
         </div>
     </div>
 </div>
