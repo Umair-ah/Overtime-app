@@ -54,6 +54,8 @@ describe "navigate" do
     
     describe "new" do
         it "can create a new post" do
+            emp = Employee.create(first_name: "emp", last_name:"user", email:"emp@test.com", password:"other123", password_confirmation:"other123")
+            login_as(emp, scope: :user)
             visit root_path
             click_link("new_post_link")
             expect(page.status_code).to eq(200)  

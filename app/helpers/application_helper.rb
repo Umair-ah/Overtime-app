@@ -4,6 +4,15 @@ module ApplicationHelper
     end
 
 
+    def employee?
+        current_user.type == "Employee"
+    end
+
+    def admin?
+        admins_who_can_access.include?(current_user.type)
+    end
+
+
 
     def active?(path)
         "nav-link active" if current_page?(path)

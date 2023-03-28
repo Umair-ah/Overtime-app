@@ -4,19 +4,17 @@
         <li class="nav-item nav-link <%= active?(root_path)%>">
             <%= link_to "Home", root_path, style:"text-decoration: none;" %>
         </li>
-        <li class="nav-item nav-link <%= active?(posts_path)%>">
-            <%= link_to "Time Entries", posts_path, style:"text-decoration: none;" %>
-        </li>
-        <%= render "shared/audit_log_tab" if policy(AuditLog).index? %>
-        <li class="nav-item nav-link <%= active?(new_post_path)%>">
-            <%= link_to "Request Overtime", new_post_path, style:"text-decoration: none;", id:"new_post_link" %>
-        </li>
+
+        <%= render "shared/employee_nav" if employee? %>
+
+        <%= render "shared/audit_log_tab" if admin? %>
+        
 
     
         <li class="nav-item dropdown ml-md-auto nav">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown">Options</a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-           <% if current_user.try(:type) == "AdminUser" %>
+           <% if admin? %>
                     <%= link_to "GOTO: Admin Dashboard", admin_root_path, class:"dropdown-item" %>
                 <div class="dropdown-divider"></div> 
             <% end %>

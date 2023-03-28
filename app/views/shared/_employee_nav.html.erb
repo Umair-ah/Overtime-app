@@ -1,0 +1,7 @@
+<li class="nav-item nav-link <%= active?(posts_path)%>">
+            <%= link_to "Time Entries", posts_path, style:"text-decoration: none;" %>
+</li>
+
+<li class="nav-item nav-link <%= active?(new_post_path)%>">
+    <%= link_to "Request Overtime", new_post_path, style:"text-decoration: none;", id:"new_post_link" %>
+</li>
