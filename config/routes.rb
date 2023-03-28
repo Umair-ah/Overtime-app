@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :posts
       resources :users
       resources :admin_users
+      resources :employees
+      
 
       root to: "posts#index"
     end
@@ -21,4 +23,5 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root "statics#home"
+  resources :employees
 end
