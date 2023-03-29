@@ -10,6 +10,8 @@ FactoryGirl.define do
         password "test123"
         password_confirmation "test123"
         phone "1234567890"
+        ssn 1234
+        company "ABC comp"
     end
 
     factory :admin_user, class: "AdminUser" do
@@ -19,6 +21,8 @@ FactoryGirl.define do
         password "admin123"
         password_confirmation "admin123"
         phone "1234567890"
+        ssn 1234
+        company "ABC comp"
     end
 
     factory :non_authorized_user, class: "User" do
@@ -28,6 +32,8 @@ FactoryGirl.define do
         password "non123"
         password_confirmation "non123"
         phone "1234567890"
+        ssn 1234
+        company "ABC comp"
     end
 
 end

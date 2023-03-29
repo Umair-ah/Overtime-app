@@ -16,6 +16,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
     posts: Field::HasMany.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
     phone: Field::String.with_options(searchable: false),
+    ssn: Field::Number.with_options(searchable: false),
+    company: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,15 +26,19 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    email
+    ssn
+    company
     first_name
     last_name
+    email
     type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    ssn
+    company
     email
     phone
     first_name
@@ -45,11 +51,13 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    ssn
     email
     phone
     password
     first_name
     last_name
+    company
     type
   ].freeze
 
