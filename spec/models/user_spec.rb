@@ -44,5 +44,21 @@ RSpec.describe User, type: :model do
     end
   end
   
+  describe "relationship b/w user and hand" do
+    it "will make an admin and have its own selected employees" do
+      employee1 = FactoryGirl.create(:user)
+      employee2 = FactoryGirl.create(:user)
+      admin = FactoryGirl.create(:admin_user)
+      
+      Hand.create(user_id: admin.id, hand_id: employee1.id)
+      Hand.create(user_id: admin.id, hand_id: employee2.id)
+
+      expect(admin.hands.count).to eq(2)  
+    end
+    
+    
+  end
+  
+  
 
 end
